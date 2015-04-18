@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bottomsectionmark}
+   [2015/04/18 v1.0.0 style file ``bottomsectionmark.sty''^^J
+    by Yuwsuke KIEDA]
+
+\newif\if@bottomsectionmark \@bottomsectionmarkfalse
+\DeclareOption{top}{\@bottomsectionmarkfalse}
+\DeclareOption{bottom}{\@bottomsectionmarktrue}
+\ExecuteOptions{bottom}
+\ProcessOptions
+
+\if@bottomsectionmark
+  \def\rightmark{\expandafter\@rightmark\botmark\@empty\@empty}
+\else
+  \def\rightmark{\expandafter\@rightmark\firstmark\@empty\@empty}
+\fi
+\endinput
